@@ -12,3 +12,7 @@ Requirements:
   - TOKEN = "token here"
 2) Make sure you have a "out" and "tmp" folder
 3) Run runbot.py
+
+## Usage
+- Posting a link to 7tv emote will show a gif version of the emote if it is WEBP format
+- !addemote <link to 7tv emote>
