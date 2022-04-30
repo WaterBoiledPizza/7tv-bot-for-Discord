@@ -146,10 +146,3 @@ class Channel:
         for i in self.findEmotes(emote):
             e = Emote(i.id, size)
             e.download(output_folder)
-
-
-# emotes = [Emote("603c89cbbb69c00014bed23e", 4),Emote("603ca67dfaf3a00014dff0aa", 4),Emote("60f913b315758a7f9a984b5f", 4),Emote("612b8c766b114f8fd7f34a34", 4)]
-# emotes[2].download(dest_folder)
-
-# me = Channel("waterboiledpizza")
-# me.getEmotes("xqcL", 2, dest_folder)
