@@ -21,12 +21,14 @@ async def on_message(message):
     if message.content.startswith(r'https://7tv.app/emotes/'):
         emoteID = message.content[23:]
         e = Emote(emoteID,4)
-        e.download(folder_dir)
+        if hasattr(e.info, 'message'):
+            await message.channel.send(e.message)
+        else:
+            e.download(folder_dir)
+            with open(e.file_path, 'rb') as fp:
+                await message.channel.send(file=discord.File(fp))
+            os.remove(e.file_path)
 
-        with open(e.file_path, 'rb') as fp:
-            await message.channel.send(file=discord.File(fp))
-
-        os.remove(e.file_path)
     await client.process_commands(message)
 
 @client.command()
@@ -35,17 +37,51 @@ async def addemote(ctx, url: str):
     if ctx.author.guild_permissions.manage_emojis:
         emoteID = url[23:]
         e = Emote(emoteID,4)
-        e.download(folder_dir)
-        with open(e.file_path, 'rb') as fp:
-            try:
-                img_or_gif = BytesIO(fp.read())
-                b_value = img_or_gif.getvalue()
-                emoji = await guild.create_custom_emoji(image=b_value, name=e.info.name)
-                await ctx.send(f'Successfully added emote: <:{e.info.name}:{emoji.id}>')
+        if hasattr(e.info, 'message'):
+            await ctx.send(e.message)
+        else:
+            e.download(folder_dir)
+            with open(e.file_path, 'rb') as fp:
+                try:
+                    img_or_gif = BytesIO(fp.read())
+                    b_value = img_or_gif.getvalue()
+                    emoji = await guild.create_custom_emoji(image=b_value, name=e.info.name)
+                    await ctx.send(f'Successfully added emote: <:{e.info.name}:{emoji.id}>')
 
-            except discord.HTTPException:
-                await ctx.send('File size is too big!')
-        os.remove(e.file_path)
+                except discord.HTTPException:
+                    await ctx.send('File size is too big!')
+            os.remove(e.file_path)
+
+@client.command()
+async def findemoteinchannel(ctx, channel: str, emote: str, exact= False):
+    guild = ctx.guild
+    message = ""
+    if ctx.author.guild_permissions.manage_emojis:
+        c = Channel(channel)
+        if hasattr(c.info, 'message'):
+            await ctx.send("User does not exist!")
+        else:
+            list = c.findEmotes(emote, exact)
+            message += f'{channel} has {len(list)} {emote} emote(s):'
+            for i in list:
+                print(f"Found {i.name}")
+                message += f"\n{i.name}: <https://7tv.app/emotes/{i.id}>"
+            await ctx.send(message)
+        # try:
+        #     with open(e.file_path, 'rb') as fp:
+        #         try:
+        #             img_or_gif = BytesIO(fp.read())
+        #             b_value = img_or_gif.getvalue()
+        #             emoji = await guild.create_custom_emoji(image=b_value, name=e.info.name)
+        #             await ctx.send(f'Successfully added emote: <:{e.info.name}:{emoji.id}>')
+        #
+        #         except discord.HTTPException:
+        #             await ctx.send('File size is too big!')
+        #
+        # except:
+        #     await ctx.send(e.message)
+        #
+        # os.remove(e.file_path)
 
 client.run(TOKEN)
 
