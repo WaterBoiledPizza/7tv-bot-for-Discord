@@ -14,6 +14,7 @@ class Emote:
         self.id = id
         self.url = f"https://api.7tv.app/v2/emotes/{id}"
 
+
         if size < 1:
             print("The size is not in range. Changed to size 1")
             self.size = 1
@@ -24,6 +25,10 @@ class Emote:
 
         response = requests.get(self.url)
         self.info = json.loads(response.text, object_hook=lambda d: SimpleNamespace(**d))
+
+        if hasattr(self.info, 'message'):
+            self.message = f"Error {self.info.status}: {self.info.message}"
+
         self.file_path = ""
         self.mime = ""
         self.output_folder = ""
@@ -116,6 +121,8 @@ class Emote:
         self.file_path = img_path
 
     def download(self,output_folder):
+        if hasattr(self.info, 'message'):
+            return
         self.output_folder = output_folder
         self.startTime = time.time()
         self.getFile()
@@ -134,15 +141,22 @@ class Channel:
         self.url = f"https://api.7tv.app/v2/users/{name}/emotes"
         response = requests.get(self.url)
         self.info = json.loads(response.text, object_hook=lambda d: SimpleNamespace(**d))
+        self.list = []
 
-    def findEmotes(self,emote):
-        list = []
+    def findEmotes(self,emote,exact= True):
         for i in self.info:
-            if i.name == emote:
-                list.append(i)
-        return(list)
+            if (emote in (i.name).lower() and not exact) or (emote == i.name and exact):
+                self.list.append(i)
+        return(self.list)
 
-    def getEmotes(self,emote, size, output_folder):
-        for i in self.findEmotes(emote):
+    def findEmotesByTags(self,tag):
+        for i in self.info:
+            if tag in i.tags:
+                self.list.append(i)
+        return(self.list)
+
+    def getEmotes(self,emote, size, output_folder,exact= True):
+        for i in self.findEmotes(emote, exact):
             e = Emote(i.id, size)
             e.download(output_folder)
+
