@@ -1,12 +1,23 @@
 import discord
 from discord.ext import commands
 import os
+import config as cfg
 from io import BytesIO
 from classes import Emote, Channel
 
-TOKEN = "" #put the token of the bot here
-client = commands.Bot(command_prefix='!')
-folder_dir = "out"
+TOKEN = cfg.TOKEN  #put the token of the bot here
+client = commands.Bot(command_prefix=cfg.prefix)
+folder_dir = cfg.output_folder
+
+if not os.path.exists(folder_dir):
+    print("Output folder is not found")
+    os.makedirs(folder_dir)
+    print("Output folder is created")
+
+if not os.path.exists("tmp"):
+    print("Temporary folder is not found")
+    os.makedirs("tmp")
+    print("Temporary folder is created")
 
 @client.event
 async def on_ready():
@@ -20,7 +31,7 @@ async def on_message(message):
 
     if message.content.startswith(r'https://7tv.app/emotes/'):
         emoteID = message.content[23:]
-        e = Emote(emoteID,4)
+        e = Emote(emoteID,cfg.showemote_size)
         if hasattr(e.info, 'message'):
             await message.channel.send(e.message)
         else:
@@ -36,7 +47,7 @@ async def addemote(ctx, url: str):
     guild = ctx.guild
     if ctx.author.guild_permissions.manage_emojis:
         emoteID = url[23:]
-        e = Emote(emoteID,4)
+        e = Emote(emoteID,cfg.addemote_size)
         if hasattr(e.info, 'message'):
             await ctx.send(e.message)
         else:
@@ -51,6 +62,18 @@ async def addemote(ctx, url: str):
                 except discord.HTTPException:
                     await ctx.send('File size is too big!')
             os.remove(e.file_path)
+
+@client.command()
+async def downloadlocal(ctx, url: str, size: int):
+    guild = ctx.guild
+    if ctx.author.guild_permissions.manage_emojis:
+        emoteID = url[23:]
+        e = Emote(emoteID,size)
+        if hasattr(e.info, 'message'):
+            await ctx.send(e.message)
+        else:
+            e.download(folder_dir)
+            await ctx.send(f'Emote downloaded successfully!')
 
 @client.command()
 async def findemoteinchannel(ctx, channel: str, emote: str, exact= False):
