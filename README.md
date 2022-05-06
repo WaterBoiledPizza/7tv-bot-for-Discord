@@ -1,6 +1,11 @@
 # 7tvbot
 Requirements:
 - ImageMagick: https://imagemagick.org/script/download.php
+- setuptools==57.0.0
+- discord==1.7.3
+- requests==2.26.0
+- Pillow==8.4.0
+- Wand==0.6.7
 
 ## Make a bot
 1) Go to https://discord.com/developers/applications
