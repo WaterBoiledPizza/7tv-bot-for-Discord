@@ -2,8 +2,8 @@
 Requirements:
 1) Download Python https://www.python.org/downloads/
 - Any version of Python should work, so getting the latest stable version is recommended
-3) Download ImageMagick: https://imagemagick.org/script/download.php
-4) At the folder, run "pip install -r requirements.txt" to download the required library for the script. The libraries required are as follows:
+2) Download ImageMagick: https://imagemagick.org/script/download.php
+3) At the folder, run "pip install -r requirements.txt" to download the required library for the script. The libraries required are as follows:
 - setuptools==57.0.0
 - discord==1.7.3
 - requests==2.26.0
