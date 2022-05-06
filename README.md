@@ -20,7 +20,7 @@ Requirements:
 1) Add the token of your bot to line 7 of runbot.py
   - TOKEN = "token here"
 2) Make sure you have a "out" and "tmp" folder
-3) Run runbot.py (run "python runbot.py" at the folder)
+3) Run runbot.bot
 
 ## Usage
 - Posting a link to 7tv emote will show a gif version of the emote if it is WEBP format
