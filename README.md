@@ -1,7 +1,9 @@
 # 7tvbot
 Requirements:
-1) Download ImageMagick: https://imagemagick.org/script/download.php
-2) At the folder, run "pip install -r requirements.txt" to download the required library for the script. The libraries required are as follows:
+1) Download Python https://www.python.org/downloads/
+- Any version of Python should work, so getting the latest stable version is recommended
+3) Download ImageMagick: https://imagemagick.org/script/download.php
+4) At the folder, run "pip install -r requirements.txt" to download the required library for the script. The libraries required are as follows:
 - setuptools==57.0.0
 - discord==1.7.3
 - requests==2.26.0
@@ -18,7 +20,7 @@ Requirements:
 1) Add the token of your bot to line 7 of runbot.py
   - TOKEN = "token here"
 2) Make sure you have a "out" and "tmp" folder
-3) Run runbot.py
+3) Run runbot.py (run "python runbot.py" at the folder)
 
 ## Usage
 - Posting a link to 7tv emote will show a gif version of the emote if it is WEBP format
