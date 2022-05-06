@@ -43,24 +43,31 @@ async def on_message(message):
     await client.process_commands(message)
 
 @client.command()
-async def addemote(ctx, url: str):
+async def addemote(ctx, url: str, emotename: str = None):
     guild = ctx.guild
+    ename = "error"
     if ctx.author.guild_permissions.manage_emojis:
         emoteID = url[23:]
-        e = Emote(emoteID,cfg.addemote_size)
-        if hasattr(e.info, 'message'):
-            await ctx.send(e.message)
-        else:
-            e.download(folder_dir)
-            with open(e.file_path, 'rb') as fp:
-                try:
-                    img_or_gif = BytesIO(fp.read())
-                    b_value = img_or_gif.getvalue()
-                    emoji = await guild.create_custom_emoji(image=b_value, name=e.info.name)
-                    await ctx.send(f'Successfully added emote: <:{e.info.name}:{emoji.id}>')
+        for i in reversed(range(1, 5)):
+            print(f"Trying size {i}x...")
+            e = Emote(emoteID,i)
+            if hasattr(e.info, 'message'):
+                await ctx.send(e.message)
+            else:
+                if emotename is None:
+                    ename = e.info.name
+                else: ename = emotename
+                e.download(folder_dir)
+                with open(e.file_path, 'rb') as fp:
+                    try:
+                        img_or_gif = BytesIO(fp.read())
+                        b_value = img_or_gif.getvalue()
+                        emoji = await guild.create_custom_emoji(image=b_value, name=ename)
+                        await ctx.send(f'Successfully added emote: <:{ename}:{emoji.id}>')
+                        break
 
-                except discord.HTTPException:
-                    await ctx.send('File size is too big!')
+                    except discord.HTTPException:
+                        print(f'File size of {i}x is too big!')
             os.remove(e.file_path)
 
 @client.command()
