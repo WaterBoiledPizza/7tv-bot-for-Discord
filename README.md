@@ -1,4 +1,4 @@
-# 7tvbot
+# 7tv bot for Discord
 Requirements:
 1) Download Python https://www.python.org/downloads/
 - Any version of Python should work, so getting the latest stable version is recommended
