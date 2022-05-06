@@ -3,7 +3,7 @@ Requirements:
 1) Download Python https://www.python.org/downloads/
 - Any version of Python should work, so getting the latest stable version is recommended
 2) Download ImageMagick: https://imagemagick.org/script/download.php
-3) At the folder, run `pip install -r requirements.txt` to download the required library for the script. 
+3) At the folder, click `setup.bat` to download the required library for the script. 
    - The libraries required are as follows:
     ```
     - setuptools==57.0.0
