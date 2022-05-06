@@ -7,13 +7,10 @@ from wand.image import Image as Img
 from types import SimpleNamespace
 import time
 
-dest_folder = "out"
-
 class Emote:
     def __init__(self,id, size):
         self.id = id
         self.url = f"https://api.7tv.app/v2/emotes/{id}"
-
 
         if size < 1:
             print("The size is not in range. Changed to size 1")
@@ -23,8 +20,8 @@ class Emote:
             self.size = 4
         else: self.size = size
 
+
         response = requests.get(self.url)
-        print("Request fetched")
         self.info = json.loads(response.text, object_hook=lambda d: SimpleNamespace(**d))
 
         if hasattr(self.info, 'message'):
@@ -63,9 +60,7 @@ class Emote:
             MediaFile = Image.open(self.file_path)
             Index = 0
             for frame in ImageSequence.Iterator(MediaFile):
-                # frame.save(f"out/frame{Index}.png")
                 Index += 1
-            #print(Index)
             return Index
         except:  # If the .webp can't be opened then it is most likely not a .gif or .webp
             return False
