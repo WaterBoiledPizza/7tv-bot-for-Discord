@@ -28,6 +28,6 @@ Requirements:
 
 ## Usage
 - Posting a link to 7tv emote will show a gif version of the emote if it is WEBP format
-- !addemote <link to 7tv emote>
+- !addemote <link to 7tv emote> <*optional* emoji name>
 - !downloademote <link to 7tv emote> <emote size>
 - !findemoteinchannel <channel name> <text>
