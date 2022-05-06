@@ -24,6 +24,7 @@ class Emote:
         else: self.size = size
 
         response = requests.get(self.url)
+        print("Request fetched")
         self.info = json.loads(response.text, object_hook=lambda d: SimpleNamespace(**d))
 
         if hasattr(self.info, 'message'):
