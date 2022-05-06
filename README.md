@@ -18,7 +18,7 @@ Requirements:
 2) Click [New Application] and give your app a name.
 3) At the bot tab, click [Add Bot], then copy the Token of the bot.
 
-##Configuration
+## Configuration
 - Add the token of your bot in `config.py`
 - Change the prefix as you want
 - Change the size of the downloaded emote file
