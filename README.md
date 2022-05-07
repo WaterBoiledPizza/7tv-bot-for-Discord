@@ -27,7 +27,7 @@
 
 ## Run the bot
 - Simply click `runbot.bat`
-* The script will add a `tmp` and a output folder if you don't have that already. 
+* The script will add a `tmp` and an output folder if you don't have that already. 
 
 ## Usage
 - Posting a link to 7tv emote will show a gif version of the emote if it is WEBP format
