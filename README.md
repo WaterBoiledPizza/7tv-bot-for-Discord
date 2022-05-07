@@ -1,9 +1,11 @@
 # 7tv bot for Discord
-Requirements:
+
+## Set up
 1) Download Python https://www.python.org/downloads/
 - Any version of Python should work, so getting the latest stable version is recommended
 2) Download ImageMagick: https://imagemagick.org/script/download.php
-3) At the folder, click `setup.bat` to download the required library for the script. 
+3) Download the files into a folder you destinated
+4) At the folder, click `setup.bat` to download the required library for the script. 
    - The libraries required are as follows:
     ```
     - setuptools==57.0.0
@@ -25,6 +27,7 @@ Requirements:
 
 ## Run the bot
 - Simply click `runbot.bat`
+* The script will add a `tmp` and a output folder if you don't have that already. 
 
 ## Usage
 - Posting a link to 7tv emote will show a gif version of the emote if it is WEBP format
