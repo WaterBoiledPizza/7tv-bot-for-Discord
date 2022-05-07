@@ -6,7 +6,7 @@
 2) Download ImageMagick: https://imagemagick.org/script/download.php
 3) Download the files into a folder you destinated
 4) At the folder, click `setup.bat` to download the required library for the script. 
-   - The libraries required are as follows:
+- The libraries required are as follows:
     ```
     - setuptools==57.0.0
     - discord==1.7.3
