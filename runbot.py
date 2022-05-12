@@ -35,7 +35,7 @@ async def on_message(message):
         if hasattr(e.info, 'message'):
             await message.channel.send(e.message)
         else:
-            e.download(folder_dir)
+            e.download("tmp")
             with open(e.file_path, 'rb') as fp:
                 await message.channel.send(file=discord.File(fp))
             os.remove(e.file_path)
@@ -46,6 +46,7 @@ async def on_message(message):
 async def addemote(ctx, url: str, emotename: str = None):
     guild = ctx.guild
     ename = "error"
+    success = False
     if ctx.author.guild_permissions.manage_emojis:
         emoteID = url[23:]
         for i in reversed(range(1, 5)):
@@ -57,18 +58,21 @@ async def addemote(ctx, url: str, emotename: str = None):
                 if emotename is None:
                     ename = e.info.name
                 else: ename = emotename
-                e.download(folder_dir)
+                e.download("tmp")
                 with open(e.file_path, 'rb') as fp:
                     try:
                         img_or_gif = BytesIO(fp.read())
                         b_value = img_or_gif.getvalue()
                         emoji = await guild.create_custom_emoji(image=b_value, name=ename)
                         await ctx.send(f'Successfully added emote: <:{ename}:{emoji.id}>')
-                        break
+                        success = True
 
                     except discord.HTTPException:
                         print(f'File size of {i}x is too big!')
-            os.remove(e.file_path)
+
+                if success:
+                    os.remove(e.file_path)
+                    break
 
 @client.command()
 async def downloadlocal(ctx, url: str, size: int):
