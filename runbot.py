@@ -67,8 +67,9 @@ async def addemote(ctx, url: str, emotename: str = None):
                         await ctx.send(f'Successfully added emote: <:{ename}:{emoji.id}>')
                         success = True
 
-                    except discord.HTTPException:
-                        print(f'File size of {i}x is too big!')
+                    except discord.HTTPException as e:
+                        #print(f'File size of {i}x is too big!')
+                        print(e)
 
                 if success:
                     os.remove(e.file_path)
