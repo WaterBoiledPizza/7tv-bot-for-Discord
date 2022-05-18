@@ -46,7 +46,6 @@ async def on_message(message):
 async def addemote(ctx, url: str, emotename: str = None):
     guild = ctx.guild
     ename = "error"
-    success = False
     if ctx.author.guild_permissions.manage_emojis:
         emoteID = url[23:]
         for i in reversed(range(1, 5)):
@@ -65,13 +64,12 @@ async def addemote(ctx, url: str, emotename: str = None):
                         b_value = img_or_gif.getvalue()
                         emoji = await guild.create_custom_emoji(image=b_value, name=ename)
                         await ctx.send(f'Successfully added emote: <:{ename}:{emoji.id}>')
-                        success = True
 
                     except discord.HTTPException as e:
                         #print(f'File size of {i}x is too big!')
                         print(e)
 
-                if success:
+                if os.path.exists(e.file_path):
                     os.remove(e.file_path)
                     break
 
