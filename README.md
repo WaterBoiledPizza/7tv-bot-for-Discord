@@ -3,6 +3,7 @@
 ## Set up
 1) Download Python https://www.python.org/downloads/
 - Any version of Python should work, so getting the latest stable version is recommended
+- Make sure to add Python to PATH
 2) Download ImageMagick: https://imagemagick.org/script/download.php
 3) Download the files into a folder you destinated
 4) At the folder, click `setup.bat` to download the required library for the script. 
