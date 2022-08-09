@@ -8,7 +8,6 @@
 3) At the folder, click `setup.bat` to download the required library for the script. 
 - The libraries required are as follows:
     ```
-    - setuptools==57.0.0
     - discord==1.7.3
     - requests==2.26.0
     ```
