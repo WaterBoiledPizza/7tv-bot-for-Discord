@@ -30,7 +30,7 @@ async def on_message(message):
         return
 
     if message.content.startswith(r'https://7tv.app/emotes/'):
-        emoteID = message.content[23:]
+        emoteID = message.content.split("/")[-1]
         e = Emote(emoteID,cfg.showemote_size)
         if hasattr(e.info, 'message'):
             await message.channel.send(e.message)
@@ -48,7 +48,7 @@ async def addemote(ctx, url: str, emotename: str = None):
     guild = ctx.guild
     ename = "error"
     if ctx.author.guild_permissions.manage_emojis:
-        emoteID = url[23:]
+        emoteID = url.split("/")[-1]
         for i in reversed(range(1, 5)):
             print(f"Trying size {i}x...")
             e = Emote(emoteID,i)
@@ -81,7 +81,7 @@ async def addemote(ctx, url: str, emotename: str = None):
 async def downloadlocal(ctx, url: str, size: int):
     guild = ctx.guild
     if ctx.author.guild_permissions.manage_emojis:
-        emoteID = url[23:]
+        emoteID = url.split("/")[-1]
         e = Emote(emoteID,size)
         if hasattr(e.info, 'message'):
             await ctx.send(e.message)
