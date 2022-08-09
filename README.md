@@ -4,16 +4,13 @@
 1) Download Python https://www.python.org/downloads/
 - Any version of Python should work, so getting the latest stable version is recommended
 - Make sure to add Python to PATH
-2) Download ImageMagick: https://imagemagick.org/script/download.php
-3) Download the files into a folder you destinated
-4) At the folder, click `setup.bat` to download the required library for the script. 
+2) Download the files into a folder you destinated
+3) At the folder, click `setup.bat` to download the required library for the script. 
 - The libraries required are as follows:
     ```
     - setuptools==57.0.0
     - discord==1.7.3
     - requests==2.26.0
-    - Pillow==8.4.0
-    - Wand==0.6.7
     ```
 
 ## Make a bot
@@ -32,6 +29,7 @@
 
 ## Usage
 - Posting a link to 7tv emote will show a gif version of the emote if it is WEBP format
+* only works with V2 site since V3 site can show embeded emote in Discord
 - !addemote <link to 7tv emote> <\*optional\* emoji name>
 - !downloademote <link to 7tv emote> <emote size>
 - !findemoteinchannel <channel name> <text>
