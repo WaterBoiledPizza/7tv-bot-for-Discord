@@ -82,7 +82,7 @@ class Channel:
 
     def findEmotes(self,emote,exact= True):
         for i in self.info:
-            if (emote in (i.name).lower() and not exact) or (emote == i.name and exact):
+            if (emote.lower() in (i.name).lower() and not exact) or (emote == i.name and exact):
                 self.list.append(i)
         return(self.list)
 
