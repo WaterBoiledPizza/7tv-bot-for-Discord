@@ -6,7 +6,7 @@ from io import BytesIO
 from classes import Emote, Channel
 
 TOKEN = cfg.TOKEN  #put the token of the bot here
-client = commands.Bot(command_prefix=cfg.prefix)
+client = commands.Bot(command_prefix=cfg.prefix,intents=discord.Intents.default())
 folder_dir = cfg.output_folder
 
 if not os.path.exists(folder_dir):
