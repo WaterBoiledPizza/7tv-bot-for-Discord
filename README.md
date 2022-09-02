@@ -16,6 +16,7 @@
 1) Go to https://discord.com/developers/applications
 2) Click [New Application] and give your app a name.
 3) At the bot tab, click [Add Bot], then copy the Token of the bot.
+4) Enable all the Privileged Gateway Intents
 
 ## Configuration
 - Add the token of your bot in `config.py`
