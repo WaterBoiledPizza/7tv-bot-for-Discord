@@ -30,6 +30,6 @@
 ## Usage
 - Posting a link to 7tv emote will show a gif version of the emote if it is WEBP format
     - only works with V2 urls, since V3 urls can show embeded emote in Discord
-- !addemote <link to 7tv emote> <\*optional\* emoji name>
-- !downloadlocal <link to 7tv emote> <emote size>
-- !findemoteinchannel <channel name> <text>
+- !addemote \<link to 7tv emote\> \<\*optional\* emoji name\>
+- !downloadlocal \<link to 7tv emote\> \<emote size\>
+- !findemoteinchannel \<channel name\> \<text\>
