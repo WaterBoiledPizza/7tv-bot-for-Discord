@@ -6,11 +6,6 @@
 - Make sure to add Python to PATH
 2) Download the files into a folder you destinated
 3) At the folder, click `setup.bat` to download the required library for the script. 
-- The libraries required are as follows:
-    ```
-    - discord==1.7.3
-    - requests==2.26.0
-    ```
 
 ## Make a bot
 1) Go to https://discord.com/developers/applications
@@ -22,6 +17,16 @@
 - Add the token of your bot in `config.py`
 - Change the prefix as you want
 - Change the size of the downloaded emote file
+- Add dedicated discord channel for listening
+    - Go to Discord settings. In Advanced tab, enable Developer mode
+    - Right click your chosen discord channel, then copy ID
+- Add 7tv user ID to listen
+    - format:
+    ```
+    "listeningUsers": [
+        "\<7tv ID\>", "\<7tv ID\>", ...
+    ]
+    ```
 
 ## Run the bot
 - Simply click `runbot.bat`
@@ -31,5 +36,11 @@
 - Posting a link to 7tv emote will show a gif version of the emote if it is WEBP format
     - only works with V2 urls, since V3 urls can show embeded emote in Discord
 - !addemote \<link to 7tv emote\> \<\*optional\* emoji name\>
-- !downloadlocal \<link to 7tv emote\> \<emote size\>
 - !findemoteinchannel \<channel name\> \<text\>
+- !searchemotes \<text\>
+- !listeningchannels
+
+[In development]
+- !addlistenchannel <channel name\>
+- !removelistenchannel <channel name\>
+These two commands require bot restart to update
