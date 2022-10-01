@@ -1,0 +1,12 @@
+{
+    "TOKEN": "",
+    "prefix": "!",
+    "output_folder": "out",
+    "showemote_size": 4,
+    "case_sensitive": true,
+    "category": "TOP",
+    "exact_match": false,
+    "ignore_tags": true,
+    "listen_channel": ,
+    "listeningUsers": []
+}
