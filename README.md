@@ -24,7 +24,7 @@
     - format:
     ```
     "listeningUsers": [
-        "\<7tv ID\>", "\<7tv ID\>", ...
+        "<7tv ID>", "<7tv ID>", ...
     ]
     ```
 
