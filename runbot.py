@@ -77,6 +77,7 @@ async def addemote(ctx, url: str, emotename: str = None):
                         img_or_gif = BytesIO(fp.read())
                         b_value = img_or_gif.getvalue()
                         emoji = await guild.create_custom_emoji(image=b_value, name=ename)
+                        print(f'Successfully added emote: <:{ename}:{emoji.id}>')
                         await ctx.send(f'Successfully added emote: <:{ename}:{emoji.id}>')
                         success = True
 
