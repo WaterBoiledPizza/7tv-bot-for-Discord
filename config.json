@@ -7,6 +7,6 @@
     "category": "TOP",
     "exact_match": false,
     "ignore_tags": true,
-    "listen_channel": none,
-    "listeningUsers": [none]
+    "listen_channel": null,
+    "listeningUsers": [null]
 }
