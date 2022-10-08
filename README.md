@@ -12,6 +12,10 @@
 2) Click [New Application] and give your app a name.
 3) At the bot tab, click [Add Bot], then copy the Token of the bot.
 4) Enable all the Privileged Gateway Intents
+5) Invite the bot to your server
+    - OAuth2 -> URL Generator
+    - Check the "bot" box
+    - Check permission about emojis, messages, links and attach files.
 
 ## Configuration
 - Add the token of your bot in `config.py`
