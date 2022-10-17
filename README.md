@@ -31,6 +31,21 @@
         "<7tv ID>", "<7tv ID>", ...
     ]
     ```
+- Sample config:
+```
+{
+    "TOKEN": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "prefix": "!",
+    "output_folder": "out",
+    "showemote_size": 4,
+    "case_sensitive": true,
+    "category": "TOP",
+    "exact_match": false,
+    "ignore_tags": true,
+    "listen_channel": xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx,
+    "listeningUsers": ["xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"]
+}
+```
 
 ## Run the bot
 - Simply click `runbot.bat`
