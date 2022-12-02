@@ -1,3 +1,5 @@
+**PROJECT DEVELOPMENT IS HALTED (01/12/2022)**
+
 # 7tv bot for Discord
 
 ## Set up
