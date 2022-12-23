@@ -1,5 +1,5 @@
 # **PROJECT DEVELOPMENT IS HALTED (01/12/2022)**
-Active fork here: https://github.com/zakary2841/7tv-bot-for-Discord
+Active fork here: https://github.com/zakary2841/7tv-bot-for-Discord/tree/hybrid
 
 # 7tv bot for Discord
 
